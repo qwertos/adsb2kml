@@ -1,4 +1,6 @@
 require_relative "adsb/listener.rb"
+require_relative "adsb/database.rb"
+require_relative "adsb/airplane.rb"
 
 module ADSB
 	
