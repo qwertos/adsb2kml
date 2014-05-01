@@ -1,19 +1,20 @@
 #!/usr/bin/env ruby
 
-require 'sinatra'
 require_relative 'config.rb'
 require_relative 'lib/adsb.rb'
 
-set :bind => '0.0.0.0'
 
 $db = ADSB::Database.new
 $listener = ADSB::Listener.new $HOSTNAME, $PORT, $db
+$CLEAR = `clear`
 
 
-
-get '/adsb.kml' do
-	content_type 'application/vnd.google-earth.kml+xml'
-	return $db.to_kml.render
+loop do
+	puts $CLEAR
+	puts $db.to_cons
+	sleep 1
 end
+
+
 
 

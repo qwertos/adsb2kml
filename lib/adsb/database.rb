@@ -11,6 +11,7 @@ module ADSB
 
 
 		def update airplane
+			puts "updating"
 			if ( @airplanes.has_key? airplane.address ) then
 				@airplanes[airplane.address].merge_with airplane
 			else
@@ -38,8 +39,17 @@ module ADSB
 			return kml
 		end
 
-		def to_s
-			return "TODO"
+		def to_cons
+			to_return = sprintf $STRING_FORMAT, "Address", "Latitude", "Longitude", "Speed", "Last Heard", "Track"
+			to_return += "\n"
+
+			@airplanes.each do |address, air|
+				to_return += air.to_cons
+				to_return += "\n"
+			end
+			
+			return to_return
+
 		end
 	end
 end

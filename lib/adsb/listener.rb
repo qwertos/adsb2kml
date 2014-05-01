@@ -24,23 +24,43 @@ module ADSB
 		end
 
 		def listener
-			line = $cons_sock.get.strip
+			begin
+				line = @cons_sock.gets
+			rescue
+				puts "error"
+			end
+			line.strip!
 
+			match = nil
+			begin
 			if ! ( match = $MESSAGE_FORMAT.match line ) then
+				puts "no match"
 				return
 			end
+			rescue
+				puts "error2"
+			end
+			
 
 			temp_airplane = Airplane.new match[:address]
 
 			temp_airplane.last_heard = Time.now.to_i
+	
 
 			temp_airplane.info.each do |sym|
+			begin
 				if sym == :last_heard then
 					next
 				end
 
 				temp_airplane.send( sym.to_s + "=", match[sym])
+			rescue
+				puts "error " + sym.to_s
 			end
+			end
+			
+			
+			
 			
 			@database.update_t( temp_airplane )
 		end

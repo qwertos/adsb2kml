@@ -10,22 +10,29 @@ module ADSB
 			:last_heard,
 			:speed,
 			:vert_rate,
-			:track
+			:track,
+			:altitude
 		]
 
 		@@info.each do |x|
 			attr_accessor x
 		end
 
-		attr_reader :address, :info
+		attr_reader :address
+
+		def info
+			return @@info
+		end
 
 		def initialize address
 			@address = address
-			@altitude = 0
+			@altitude = "0"
 		end
 
-		def merge airplane
+		def merge_with airplane
+			puts "merging"
 			if airplane.address != @address then
+				puts "not this plane"
 				return false
 			end
 			
@@ -53,8 +60,8 @@ module ADSB
 			return to_return
 		end
 
-		def to_s
-			return "TODO"
+		def to_cons
+			return sprintf $STRING_FORMAT, @address, @latitude, @longitude, @speed, @last_heard, @track
 		end
 			
 	end
