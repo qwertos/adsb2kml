@@ -58,6 +58,17 @@ module ADSB
 			return to_return
 		end
 
+		def icon url
+			to_return = KML::Style.new(
+				:icon_style => KML::IconStyle.new(
+					:heading => @track,
+					:icon => KML::Icon.new(
+						:href => url
+					)
+				)
+			)
+		end
+
 		def to_cons
 			return sprintf $STRING_FORMAT, @address, @latitude, @longitude, @speed, @last_heard, @track
 		end

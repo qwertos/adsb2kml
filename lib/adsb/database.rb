@@ -31,6 +31,7 @@ module ADSB
 			
 			@airplanes.each do |address, airplane|
 				folder.features << airplane.placemark
+				folder.features << airplane.icon
 			end
 
 			kml.objects << folder
