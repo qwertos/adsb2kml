@@ -30,24 +30,19 @@ module ADSB
 				return
 			end
 
-			timestamp = Time.now.to_i
+			temp_airplane = Airplane.new match[:address]
 
-			info = {
-				:address   => match[:address],
-				:timestamp => timestamp
-				:callsign  => match[:callsign],
-				:altitude  => match[:altitude],
-				:speed     => match[:speed],
-				:track     => match[:track],
-				:latitude  => match[:latitude],
-				:longitude => match[:longitude],
-				:vert_rate => match[:vert_rate]
-			}
+			temp_airplane.last_heard = Time.now.to_i
 
+			temp_airplane.info.each do |sym|
+				if sym == :last_heard then
+					next
+				end
+
+				temp_airplane.send( sym.to_s + "=", match[sym])
+			end
 			
-			
-
-
+			@database.update_t( temp_airplane )
 		end
 	end
 end

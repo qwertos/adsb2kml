@@ -17,7 +17,7 @@ module ADSB
 			attr_accessor x
 		end
 
-		attr_reader :address
+		attr_reader :address, :info
 
 		def initialize address
 			@address = address
