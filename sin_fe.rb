@@ -4,6 +4,7 @@ require 'sinatra'
 require_relative 'config.rb'
 require_relative 'lib/adsb.rb'
 
+set :bind => '0.0.0.0'
 
 $db = ADSB::Database.new
 $listener = ADSB::Listener.new $HOSTNAME, $PORT, $db
