@@ -4,9 +4,10 @@ require 'socket'
 module ADSB
 	class Listener
 
-		def initialize hostname, port
+		def initialize hostname, port, database
 			@hostname = hostname
 			@port = port
+			@database = database
 
 			@cons_sock = TCPSocket.new hostname, port
 			
