@@ -1,3 +1,4 @@
+require 'ruby_kml'
 
 
 module ADSB
@@ -20,6 +21,7 @@ module ADSB
 
 		def initialize address
 			@address = address
+			@altitude = 0
 		end
 
 		def merge airplane
@@ -34,6 +36,25 @@ module ADSB
 			end
 
 			return true
+		end
+
+		def placemark
+			to_return = KML::Placemark.new(
+				:name => @address,
+				:geometry => KML::Point.new(
+					:coordinates => {
+						:lat => @latitude,
+						:lng => @longitude,
+						:alt => @altitude
+					}
+				)
+			)
+
+			return to_return
+		end
+
+		def to_s
+			return "TODO"
 		end
 			
 	end
