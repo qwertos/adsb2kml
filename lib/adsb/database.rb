@@ -18,6 +18,12 @@ module ADSB
 			end
 		end
 
+		def update_t airplane
+			Thread.new do
+				update airplane
+			end
+		end
+
 
 		def to_kml
 			kml = KMLFile.new
