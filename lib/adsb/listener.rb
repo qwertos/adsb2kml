@@ -24,6 +24,25 @@ module ADSB
 
 		def listener
 			line = $cons_sock.get.strip
+
+			if ! ( match = $MESSAGE_FORMAT.match line ) then
+				return
+			end
+
+			timestamp = Time.now.to_i
+
+			info = {
+				:address   => match[:address],
+				:callsign  => match[:callsign],
+				:altitude  => match[:altitude],
+				:speed     => match[:speed],
+				:track     => match[:track],
+				:latitude  => match[:latitude],
+				:longitude => match[:longitude],
+				:vert_rate => match[:vert_rate]
+			}
+
+			
 			
 
 
