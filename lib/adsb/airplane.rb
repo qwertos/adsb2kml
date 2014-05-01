@@ -30,9 +30,7 @@ module ADSB
 		end
 
 		def merge_with airplane
-			puts "merging"
 			if airplane.address != @address then
-				puts "not this plane"
 				return false
 			end
 			
