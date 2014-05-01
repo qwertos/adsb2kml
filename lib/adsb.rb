@@ -1,3 +1,8 @@
+
+require 'ruby_kml'
+
+require_relative "ruby_kml/label_style.rb"
+
 require_relative "adsb/listener.rb"
 require_relative "adsb/database.rb"
 require_relative "adsb/airplane.rb"
