@@ -33,6 +33,7 @@ module ADSB
 			if airplane.address != @address then
 				return false
 			end
+
 			
 			@@info.each do |x|
 				if ! airplane.send(x).empty? then
@@ -52,7 +53,8 @@ module ADSB
 						:lng => @longitude,
 						:alt => @altitude
 					}
-				)
+				),
+				:style_url => "#" + @address + "_style"
 			)
 
 			return to_return
@@ -60,17 +62,26 @@ module ADSB
 
 		def icon url
 			to_return = KML::Style.new(
+				:id => @address + "_style",
 				:icon_style => KML::IconStyle.new(
 					:heading => @track,
 					:icon => KML::Icon.new(
 						:href => url
-					)
+					),
+					:scale => 1.3
+				),
+				:label_style => KML::LabelStyle.new(
+					:scale => 0.7
 				)
 			)
 		end
 
 		def to_cons
-			return sprintf $STRING_FORMAT, @address, @latitude, @longitude, @speed, @last_heard, @track
+			return sprintf $STRING_FORMAT, @address, @latitude, @longitude, @altitude, @speed, @last_heard, time_diff, @track
+		end
+
+		def time_diff
+			return Time.now.to_i - @last_heard.to_i
 		end
 			
 	end

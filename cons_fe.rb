@@ -5,12 +5,13 @@ require_relative 'lib/adsb.rb'
 
 
 $db = ADSB::Database.new
+$db.expire_after
 $listener = ADSB::Listener.new $HOSTNAME, $PORT, $db
 $CLEAR = `clear`
 
 
 loop do
-	puts $CLEAR
+	print $CLEAR
 	puts $db.to_cons
 	sleep 1
 end

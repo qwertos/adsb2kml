@@ -35,6 +35,7 @@ module ADSB
 			begin
 			if ! ( match = $MESSAGE_FORMAT.match line ) then
 				puts "no match"
+				puts line
 				return
 			end
 			rescue
@@ -44,7 +45,7 @@ module ADSB
 
 			temp_airplane = Airplane.new match[:address]
 
-			temp_airplane.last_heard = Time.now.to_i
+			temp_airplane.last_heard = Time.now.to_i.to_s
 	
 
 			temp_airplane.info.each do |sym|
