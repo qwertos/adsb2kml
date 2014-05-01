@@ -33,6 +33,7 @@ module ADSB
 
 			info = {
 				:address   => match[:address],
+				:timestamp => timestamp
 				:callsign  => match[:callsign],
 				:altitude  => match[:altitude],
 				:speed     => match[:speed],
