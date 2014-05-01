@@ -31,7 +31,7 @@ module ADSB
 			
 			@airplanes.each do |address, airplane|
 				folder.features << airplane.placemark
-				folder.features << airplane.icon
+				folder.features << airplane.icon( "http://river-wless.local:4567/plane_icon.png")
 			end
 
 			kml.objects << folder
