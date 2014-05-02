@@ -68,10 +68,10 @@ module ADSB
 					:icon => KML::Icon.new(
 						:href => url
 					),
-					:scale => 1.3
+					:scale => 1.4
 				),
 				:label_style => KML::LabelStyle.new(
-					:scale => 0.7
+					:scale => 0.4
 				)
 			)
 		end

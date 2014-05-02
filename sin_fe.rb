@@ -7,7 +7,7 @@ require_relative 'lib/adsb.rb'
 set :bind => '0.0.0.0'
 
 $db = ADSB::Database.new
-$db.expire_after
+#$db.expire_after
 $listener = ADSB::Listener.new $HOSTNAME, $PORT, $db
 
 

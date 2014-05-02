@@ -6,7 +6,7 @@ module KML
 		attr_accessor :scale
 
 		def render(xm=Builder::XmlMarkup.new(:indent => 2) )
-			xm.LableStyle {
+			xm.LabelStyle {
 				super
 				xm.scale(scale) unless scale.nil?
 			}
