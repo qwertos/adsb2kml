@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative 'config.rb'
-require_relative 'lib/adsb.rb'
+require_relative 'lib/adsb2kml.rb'
 
 
 $db = ADSB::Database.new

@@ -2,7 +2,7 @@
 
 require 'sinatra'
 require_relative 'config.rb'
-require_relative 'lib/adsb.rb'
+require_relative 'lib/adsb2kml.rb'
 
 set :bind => '0.0.0.0'
 
