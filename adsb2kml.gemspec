@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
 	gem.name = "adsb2kml"
-	gem.version = '0.0.1'
+	gem.version = '0.0.2'
 	gem.date = Date.today.to_s
 
 	gem.summary = "A library to convert SBS1 messages to KML"
