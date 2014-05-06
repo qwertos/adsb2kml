@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
 	gem.date = Date.today.to_s
 
 	gem.summary = "A library to convert SBS1 messages to KML"
-	gem.discription = gem.summary
+	gem.description = gem.summary
 
 	gem.authors = ["Aaron Herting 'qwertos'"]
 	gem.email = 'aaron@herting.cc'
