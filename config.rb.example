@@ -1,0 +1,9 @@
+
+# Hostname or IP address where the server providing SBS1
+# formatted data can be found.
+$HOSTNAME = 'localhost'
+
+# Port where the SBS1 server is listening.
+$PORT = '30003'
+
+
