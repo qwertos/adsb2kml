@@ -20,6 +20,9 @@ In either case, a dump1090 server must be availible and serving SBS1 format data
 data should work but has only been tested with dump1090). The provided `config.rb.example` file can be copied
 to `config.rb` and edited to set the hostname and port number of the server providing this data.
 
+Also, after 120 seconds (2 minutes) of not hearing any packets from a plane, the plane will be removed from
+the list of planes.
+
 ###sin_fe.rb specific info
 
 The plane clipart is a modified version of the image that was found [here](http://openclipart.org/detail/16400/boing-plane-icon-by-sabrog),
