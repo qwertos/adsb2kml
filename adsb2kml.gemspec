@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
 	gem.name = "adsb2kml"
-	gem.version = '0.0.4'
+	gem.version = '0.0.5'
 	gem.license = 'MIT'
 	gem.date = Date.today.to_s
 
@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
 	gem.email = 'aaron@herting.cc'
 	gem.homepage = 'https://github.com/qwertos/adsb2kml'
 
-	gem.add_dependency 'ruby_kml', '~> 0.1.7'
+	gem.add_dependency 'ruby_kml', '~> 0.1', '>= 0.1.7'
 
 	gem.files = Dir[ 'lib/**/*', 'README.md', 'LICENSE.MIT' ]
 end
