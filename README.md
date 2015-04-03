@@ -1,5 +1,7 @@
 #adsb2kml
 
+[![Join the chat at https://gitter.im/qwertos/adsb2kml](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/qwertos/adsb2kml?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is a library to make it easy to view [ADS-B](http://en.wikipedia.org/wiki/Automatic_dependent_surveillance-broadcast)
 traffic in [Google Earth](http://earth.google.com).
 
